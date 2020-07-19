@@ -180,7 +180,7 @@ function addBlock(typeElem,text) {
     document.body.appendChild(blockWithText);
 }
 // - приймає масив автомобілів (можна взяти з попередніх дз ),та  індентифікатор елемнту в який потрібно додати список цих автомобілів.
-carsArray=[
+let carsArray=[
     {model:'Acura',year:2000,color:'red'},
     {model:'Audi',year:2001,color:'yellow'},
     {model:'Bentley',year:2002,color:'silver'},
@@ -198,7 +198,21 @@ function car(carsArray,blockCars) {
 // - приймає масив автомобілів (можна взяти з попередніх дз ),та  індентифікатор елемнту в який потрібно додати список цих автомобілів.
 // Для кожного автомобіля створити свій блок, та додати його в елемент, індентифікатор якого ви отримали.
 // Для кожної властивості створити всередені блока автомоблія свій блок
-
+let carBlock=document.createElement('div');
+function carDiv(carsArray,carBlock) {
+    for (let i = 0; i < carsArray.length; i++) {
+        let qualityModel=document.createElement('div');
+        let qualityYear=document.createElement('div');
+        let qualityColor=document.createElement('div');
+        qualityModel.innerHTML='model: '+carsArray[i].model;
+        qualityYear.innerHTML='year: '+carsArray[i].year;
+        qualityColor.innerHTML='color: '+ carsArray[i].color;
+        carBlock.appendChild(qualityModel);
+        carBlock.appendChild(qualityYear);
+        carBlock.appendChild(qualityColor);
+        document.body.appendChild(carBlock);
+    }
+}
 // (на основі минулого ДЗ)
 // **- функція приймає 2 масиви з рівною кількістю об'єктів та з'єднює в один об'єкт користувача та місто з відповідними "id" та "user_id",
 // та повертає масив цих з'єднаних об'єктів.
